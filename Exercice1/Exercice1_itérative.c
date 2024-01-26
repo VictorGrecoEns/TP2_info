@@ -20,13 +20,16 @@ int* tableau_nouvelle_ligne_pascal(int* ligne, int n){
 
 void affiche_pascal(int n){
     int* ligne_actuelle;
+    int* ligne_precedente;
     ligne_actuelle = tableau_initial_pascal();
     for (int ligne = 0; ligne < n; ligne ++){
         for (int colonne = 0; colonne < ligne; colonne++){
             printf("%i ", ligne_actuelle[colonne + 1]);
         }
         printf("\n");
+        ligne_precedente = ligne_actuelle;
         ligne_actuelle = tableau_nouvelle_ligne_pascal(ligne_actuelle, ligne + 3);
+        free(ligne_precedente);
     }
 }
 
