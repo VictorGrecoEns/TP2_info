@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <stdio.h>
 
 int* tableau_initial_pascal(){
@@ -31,9 +32,9 @@ void affiche_pascal(int n){
         ligne_actuelle = tableau_nouvelle_ligne_pascal(ligne_actuelle, ligne + 3);
         free(ligne_precedente);
     }
+    free(ligne_actuelle);
 }
 
 int main(){
-    int* tableau = tableau_initial_pascal();
-    free(tableau);
+    affiche_pascal(10);
 }
